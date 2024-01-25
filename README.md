@@ -1,3 +1,5 @@
+# Drawing website with Angular
+
 # LOG2990
 
 Projet de base à utiliser pour démarrer le développement de votre application.
