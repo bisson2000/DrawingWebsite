@@ -1,0 +1,88 @@
+$background: rgb(51, 51, 51);
+
+#background-page {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgb(100, 100, 100);
+}
+
+.background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.warning-background {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 3;
+}
+
+.main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.white {
+    color: white;
+}
+
+.green {
+    background-color: green;
+}
+
+.red {
+    background-color: red;
+}
+
+.content {
+    background-color: $background;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 24px 64px;
+    margin-bottom: 32px;
+    border-radius: 12px;
+}
+
+.warning-content-background {
+    background-color: rgb(41, 41, 41);
+}
+
+.title {
+    text-align: center;
+}
+
+.button {
+    margin: 16px 0px;
+    font-size: 24px;
+    padding: 12px 32px;
+    border-radius: 12px;
+    width: 100%;
+    text-align: center;
+}
+
+#team {
+    text-align: center;
+    background-color: $background;
+    border-radius: 12px;
+}
+
+mat-panel-title {
+    justify-content: center;
+}

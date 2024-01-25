@@ -1,0 +1,106 @@
+@font-face {
+    src: url(../../../../assets/fonts/PressStart2P-Regular.ttf);
+    font-family: pressStart;
+}
+
+@font-face {
+    src: url(../../../../assets/fonts/Creepster-Regular.ttf);
+    font-family: creepster;
+}
+
+.mat-button-toggle {
+    background-color: #ffffff;
+    color: #000000;
+    border: none !important;
+}
+
+.mat-button-toggle-checked {
+    background-color: #686370;
+    color: #ffffff;
+}
+
+.mat-button-toggle-group {
+    border-radius: 0px;
+    border: none;
+    width: 100%;
+}
+
+.tab {
+    width: 190px;
+}
+
+.textFormatForSlider {
+    padding-left: 8px;
+    font-size: small;
+}
+
+.buttonArial {
+    font-family: Arial;
+}
+
+.buttonTimes {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.buttonMonospace {
+    font-family: monospace;
+}
+
+.buttonCreepster {
+    font-family: 'creepster';
+}
+
+.boldButton {
+    width: 70px;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.italicButton {
+    width: 70px;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.boldItalicButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.alignementGroup {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.alignementButton {
+    width: 50px;
+    padding: 5px 0px;
+}
+
+.policeGroup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.textFormat {
+    padding: 0px 15px;
+}
+
+.sliderLabelFormat {
+    margin-bottom: 0px;
+}
+
+.policeButton {
+    font-size: 15px;
+    line-height: 15px;
+    width: 150px;
+    margin: 5px 0px;
+}
+
+.buttonPressStart {
+    font-family: 'pressStart';
+    font-size: 12px;
+}

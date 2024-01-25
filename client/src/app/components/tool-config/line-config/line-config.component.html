@@ -1,0 +1,34 @@
+<div class="tab">
+    <h5 class="textFormat">Épaisseur</h5>
+    <div class="textFormatForSlider">
+        <mat-slider id="widthSlider" min="{{ MIN }}" max="{{ MAX }}" (input)="changeThickness($event)" [(ngModel)]="lineService.config.thickness">
+        </mat-slider>
+        {{ lineService.config.thickness }}px
+    </div>
+    <mat-divider></mat-divider>
+
+    <h5 class="textFormat">Type de jonction</h5>
+    <mat-button-toggle-group vertical="true" name="fontStyle" aria-label="Font Style">
+        <div class="textFormatButton">
+            <mat-button-toggle [checked]="!lineService.config.showJunctionPoints" text="Normal" class="buttons" (click)="toggleLineType(false)"
+                >Sans jonction</mat-button-toggle
+            >
+        </div>
+        <div class="textFormatButton">
+            <mat-button-toggle [checked]="lineService.config.showJunctionPoints" text="Avec point" class="buttons" (click)="toggleLineType(true)"
+                >Avec point</mat-button-toggle
+            >
+        </div>
+    </mat-button-toggle-group>
+    <br />
+    <mat-divider></mat-divider>
+
+    <div *ngIf="lineService.config.showJunctionPoints">
+        <h5 class="textFormat longFormat">Diamètre points de jonction</h5>
+        <div class="textFormatForSlider">
+            <mat-slider (input)="changeJunctionsDiameter($event)" [(ngModel)]="lineService.config.diameterJunctions" min="{{ MIN }}" max="{{ MAX }}">
+            </mat-slider>
+            {{ lineService.config.diameterJunctions }}px
+        </div>
+    </div>
+</div>

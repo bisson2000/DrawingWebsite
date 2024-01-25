@@ -1,0 +1,44 @@
+<div *ngIf="this.canShowPopup()" id="background">
+    <div id="main">
+        <div id="content">
+            <h1 class="white" id="title">Sauvegarder dessin</h1>
+            <form [formGroup]="saveForm" (ngSubmit)="save()" id="saveForm">
+                <mat-form-field appearance="legacy">
+                    <mat-label class="gray">Nom</mat-label>
+                    <input matInput formControlName="nameFormControl" name="filename" maxlength="100" />
+                    <span matSuffix>{{ '.' + saveFormat }} &nbsp;</span>
+                    <mat-error *ngIf="nameFormControl.invalid"> Le nom est <strong>invalide!</strong> </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label class="gray">Étiquette (confirmer avec Entrée)</mat-label>
+                    <mat-chip-list #chipList aria-label="Filtrage par étiquettes" formControlName="tagsFormControl">
+                        <mat-chip *ngFor="let tag of saveTags" [selectable]="selectable" [removable]="removable" (removed)="removeTag(tag)">
+                            {{ tag.name }}
+                            <mat-icon matChipRemove *ngIf="removable" id="remove">cancel</mat-icon>
+                        </mat-chip>
+                        <input
+                            maxlength="40"
+                            matInput
+                            class="gray"
+                            [matChipInputFor]="chipList"
+                            [matChipInputSeparatorKeyCodes]="SEPARATOR_KEYS_CODES"
+                            [matChipInputAddOnBlur]="addOnBlur"
+                            (matChipInputTokenEnd)="addTag($event)"
+                            class="save-input"
+                        />
+                    </mat-chip-list>
+                    <mat-hint class="gray">[A-Z][a-z][0-9][-]</mat-hint>
+                    <mat-error *ngIf="true"> Les tags sont <strong>invalides</strong></mat-error>
+                </mat-form-field>
+            </form>
+            <canvas #savePreview id="savePreview" [attr.width]="this.getPreviewWidth()" [attr.height]="this.getPreviewHeight()"></canvas>
+            <h3 *ngIf="noServerConnection" class="error">Aucune connexion au serveur!</h3>
+            <h3 *ngIf="unavailableServer" class="error">La base de données n'est pas disponible!</h3>
+            <h3 *ngIf="dataLimitReached" class="error">L'image est trop grande!</h3>
+            <div class="options">
+                <button class="button green white" type="submit" mat-raised-button [disabled]="!enableAcceptButton" form="saveForm">Confirmer</button>
+                <button class="button red white" mat-raised-button (click)="hidePopup()">Annuler</button>
+            </div>
+        </div>
+    </div>
+</div>

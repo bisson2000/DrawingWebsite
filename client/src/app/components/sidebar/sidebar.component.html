@@ -1,0 +1,86 @@
+<mat-drawer-container>
+    <mat-drawer mode="side" opened="true" [disableClose]="true">
+        <mat-action-list class="top-sidebar">
+            <button
+                id="back"
+                class="sidebar-item"
+                mat-icon-button
+                [@.disabled]="true"
+                (click)="backToMenu()"
+                matTooltip="Menu"
+                matTooltipPosition="right"
+            >
+                <mat-icon>home</mat-icon>
+            </button>
+            <button
+                (click)="toolIconClicked(tool)"
+                *ngFor="let tool of topToolsSettings"
+                class="sidebar-item icon-button"
+                matTooltip="{{ tool.INFO_BUBBLE }}"
+                mat-icon-button
+                matTooltipPosition="right"
+                [@.disabled]="true"
+                [style.background]="tool.TOOL_ID === selectedTool.toolID ? HIGHLIGHTED_COLOR : 'white'"
+            >
+                <mat-icon [ngStyle]="{ color: tool.TOOL_ID === selectedTool.toolID ? 'white' : 'black' }" svgIcon="{{ tool.ICON_NAME }}"></mat-icon>
+            </button>
+        </mat-action-list>
+
+        <mat-action-list class="bottom-sidebar">
+            <button
+                (click)="clipboardService.pasteDrawing()"
+                class="sidebar-item icon-button"
+                matTooltip="{{ pasteToolSettings.INFO_BUBBLE }}"
+                mat-icon-button
+                matTooltipPosition="right"
+                [@.disabled]="true"
+                [disabled]="clipboardService.savedConfigs === undefined"
+                [style.background]="'white'"
+            >
+                <mat-icon>{{ pasteToolSettings.ICON_NAME }}</mat-icon>
+            </button>
+
+            <button
+                (click)="emitClickEvent(undoToolSettings)"
+                class="sidebar-item icon-button"
+                matTooltip="{{ undoToolSettings.INFO_BUBBLE }}"
+                mat-icon-button
+                matTooltipPosition="right"
+                [@.disabled]="true"
+                [disabled]="blockUndoIcon"
+                [style.background]="undoToolSettings.TOOL_ID === selectedTool.toolID ? HIGHLIGHTED_COLOR : 'white'"
+            >
+                <mat-icon svgIcon="{{ undoToolSettings.ICON_NAME }}"></mat-icon>
+            </button>
+
+            <button
+                (click)="emitClickEvent(redoToolSettings)"
+                class="sidebar-item icon-button"
+                matTooltip="{{ redoToolSettings.INFO_BUBBLE }}"
+                mat-icon-button
+                matTooltipPosition="right"
+                [@.disabled]="true"
+                [disabled]="blockRedoIcon"
+                [style.background]="redoToolSettings.TOOL_ID === selectedTool.toolID ? HIGHLIGHTED_COLOR : 'white'"
+            >
+                <mat-icon svgIcon="{{ redoToolSettings.ICON_NAME }}"></mat-icon>
+            </button>
+
+            <button
+                (click)="emitClickEvent(tool)"
+                *ngFor="let tool of bottomToolsSettings"
+                class="sidebar-item icon-button"
+                matTooltip="{{ tool.INFO_BUBBLE }}"
+                mat-icon-button
+                matTooltipPosition="right"
+                [@.disabled]="true"
+                [style.background]="tool.TOOL_ID === selectedTool.toolID ? HIGHLIGHTED_COLOR : 'white'"
+            >
+                <mat-icon svgIcon="{{ tool.ICON_NAME }}"></mat-icon>
+            </button>
+        </mat-action-list>
+    </mat-drawer>
+    <mat-drawer-content>
+        <app-settings-handler></app-settings-handler>
+    </mat-drawer-content>
+</mat-drawer-container>

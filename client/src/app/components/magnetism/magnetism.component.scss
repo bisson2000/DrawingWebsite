@@ -1,0 +1,64 @@
+.box-selection {
+    width: 75px;
+    height: 75px;
+    border: 2px dotted black;
+}
+
+.magnetism-selection {
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    position: absolute;
+    border: 1px solid black;
+}
+
+.north {
+    margin-top: -7.5px;
+}
+
+.east {
+    margin-left: 70px;
+}
+
+.south {
+    margin-top: 70px;
+}
+
+.west {
+    margin-left: -7.5px;
+}
+
+.xCenter {
+    margin-left: 30px;
+}
+
+.yCenter {
+    margin-top: 30px;
+}
+
+.toggleMagnetism {
+    margin-left: 15px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.toggleName {
+    font-weight: 500;
+    margin-right: 20px;
+}
+
+.selected {
+    background-color: #ec5681;
+}
+
+h5 {
+    margin: 0px;
+}
+
+.centered {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+}

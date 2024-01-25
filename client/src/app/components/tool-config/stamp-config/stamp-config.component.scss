@@ -1,0 +1,49 @@
+.tab {
+    width: 190px;
+}
+
+.textFormat {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 0px;
+    font-size: small;
+}
+
+.textFormatForSlider {
+    padding-left: 8px;
+    font-size: small;
+}
+
+.select-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.mat-select {
+    width: 150px;
+}
+
+mat-option {
+    text-align: center;
+}
+
+#angleCanvas {
+    margin-left: 25px;
+}
+
+#angleValue {
+    font-size: 25px;
+    margin-left: 10px;
+    text-align: left;
+    font-weight: 600;
+    margin-top: 35px;
+    position: absolute;
+}
+
+.rotation-slider {
+    position: relative;
+}

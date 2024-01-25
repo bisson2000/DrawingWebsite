@@ -1,0 +1,56 @@
+<div *ngIf="this.canShowPopup()" id="background">
+    <div id="main">
+        <div id="content">
+            <h1 class="white" id="title">Exporter le dessin</h1>
+            <div class="options">
+                <h3 class="white" id="format_text">Format</h3>
+                <mat-button-toggle-group name="fontStyle" aria-label="Font Style" value="png">
+                    <mat-button-toggle id="corner-left" value="png" (change)="changeExportFormat($event.value)">PNG</mat-button-toggle>
+                    <mat-button-toggle id="corner-right" value="jpeg" (change)="changeExportFormat($event.value)">JPEG</mat-button-toggle>
+                </mat-button-toggle-group>
+            </div>
+            <form [formGroup]="exportForm" (ngSubmit)="export($event.submitter.id)" id="exportForm">
+                <mat-form-field appearance="legacy">
+                    <input matInput (input)="resetImgurData()" formControlName="nameFormControl" name="filename" maxlength="100" />
+                    <span matSuffix>{{ '.' + exportFormat }} &nbsp;</span>
+                    <mat-error *ngIf="nameFormControl.invalid"> Le nom n'est pas <strong>valide</strong> </mat-error>
+                </mat-form-field>
+            </form>
+            <div class="options">
+                <mat-button-toggle-group [value]="currentFilter">
+                    <mat-button-toggle id="corner-left" value="default" (change)="changeFilter($event.value)">AUCUN</mat-button-toggle>
+                    <mat-button-toggle value="funky" (change)="changeFilter($event.value)">FUNKY</mat-button-toggle>
+                    <mat-button-toggle value="spotlight" (change)="changeFilter($event.value)">SPOTLIGHT</mat-button-toggle>
+                    <mat-button-toggle value="sepia" (change)="changeFilter($event.value)">SEPIA</mat-button-toggle>
+                    <mat-button-toggle value="monochrome" (change)="changeFilter($event.value)">MONOCHROME</mat-button-toggle>
+                    <mat-button-toggle id="corner-right" value="negative" (change)="changeFilter($event.value)">NEGATIF</mat-button-toggle>
+                </mat-button-toggle-group>
+            </div>
+            <canvas #exportPreview id="exportPreview" [attr.width]="this.getPreviewWidth()" [attr.height]="this.getPreviewHeight()"></canvas>
+            <br />
+            <a
+                id="imgur-link-button"
+                *ngIf="imgurURL.length !== 0"
+                id="imgur-link-button"
+                id="imgur-link-button"
+                mat-raised-button
+                [href]="imgurURL"
+                target="_blank"
+            >
+                {{ imgurURL }}
+                <mat-icon>link</mat-icon>
+            </a>
+            <h3 *ngIf="hasImgurServerError" class="error">Aucune connexion au serveur de Imgur!</h3>
+            <div id="exportButtonGroup" class="options">
+                <button *ngIf="!imgurLoading" id="imgur-export" class="button green white" type="submit" mat-raised-button form="exportForm">
+                    Sur Imgur
+                </button>
+                <button *ngIf="!imgurLoading" id="local-export" class="button green white" type="submit" mat-raised-button form="exportForm">
+                    Localement
+                </button>
+                <button *ngIf="!imgurLoading" class="button red white" mat-raised-button (click)="hidePopup()">Annuler</button>
+                <mat-spinner [diameter]="50" *ngIf="imgurLoading"></mat-spinner>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+canvas {
+    cursor: crosshair;
+    border: 2px solid #000000;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#canvas {
+    z-index: 1;
+}
+
+#grid{
+  z-index: 3;
+  visibility: hidden;
+}
+
+#previewLayer {
+    z-index: 2;
+}
+
+#canvas-container {
+    position: relative;
+}
+
+#grid{
+  pointer-events: none !important;
+}

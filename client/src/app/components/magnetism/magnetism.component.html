@@ -1,0 +1,64 @@
+<mat-divider></mat-divider>
+
+<div class="toggleMagnetism">
+    <span class="toggleName"> Magnétisme </span>
+    <mat-slide-toggle [(ngModel)]="magnetismService.isEnabled" ngDefaultControl></mat-slide-toggle>
+</div>
+<div class="centered">
+    <div *ngIf="magnetismService.isEnabled" class="box-selection">
+        <div
+            class="magnetism-selection north west"
+            #topLeft
+            [style.background]="this.magnetismService.selection === magnetismSelection.TopLeft ? '#ec5681' : 'white'"
+            (click)="setSelected(magnetismSelection.TopLeft)"
+        ></div>
+        <div
+            class="magnetism-selection north xCenter"
+            #top
+            [style.background]="this.magnetismService.selection === magnetismSelection.Top ? '#ec5681' : 'white'"
+            (click)="setSelected(magnetismSelection.Top)"
+        ></div>
+        <div
+            class="magnetism-selection north east"
+            #topRight
+            [style.background]="this.magnetismService.selection === magnetismSelection.TopRight ? '#ec5681' : 'white'"
+            (click)="setSelected(magnetismSelection.TopRight)"
+        ></div>
+        <div
+            class="magnetism-selection west yCenter"
+            #left
+            [style.background]="this.magnetismService.selection === magnetismSelection.Left ? '#ec5681' : 'white'"
+            (click)="setSelected(magnetismSelection.Left)"
+        ></div>
+        <div
+            class="magnetism-selection xCenter yCenter"
+            #center
+            [style.background]="this.magnetismService.selection === magnetismSelection.Center ? '#ec5681' : 'white'"
+            (click)="setSelected(magnetismSelection.Center)"
+        ></div>
+        <div
+            class="magnetism-selection east yCenter"
+            #right
+            [style.background]="this.magnetismService.selection === magnetismSelection.Right ? '#ec5681' : 'white'"
+            (click)="setSelected(magnetismSelection.Right)"
+        ></div>
+        <div
+            class="magnetism-selection south west"
+            #bottomLeft
+            [style.background]="this.magnetismService.selection === magnetismSelection.BottomLeft ? '#ec5681' : 'white'"
+            (click)="setSelected(magnetismSelection.BottomLeft)"
+        ></div>
+        <div
+            class="magnetism-selection south xCenter"
+            #bottom
+            [style.background]="this.magnetismService.selection === magnetismSelection.Bottom ? '#ec5681' : 'white'"
+            (click)="setSelected(magnetismSelection.Bottom)"
+        ></div>
+        <div
+            class="magnetism-selection south east"
+            #bottomRight
+            [style.background]="this.magnetismService.selection === magnetismSelection.BottomRight ? '#ec5681' : 'white'"
+            (click)="setSelected(magnetismSelection.BottomRight)"
+        ></div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div (document:mousedown)="confirmSelection($event)"></div>
+<div (document:mouseup)="onMouseUp()"></div>
+
+<div *ngIf="displayControlPoints">
+    <div class="control-point-container" #controlPointContainer>
+        <div class="resize-border" #border (mousedown)="onMouseDown($event)"></div>
+        <div class="control-point-group">
+            <div class="control-point nw-cursor" #topLeft (mousedown)="selectionService.selectionResize.topLeftResize()"></div>
+            <div class="control-point n-cursor" #topMiddle (mousedown)="selectionService.selectionResize.topMiddleResize()"></div>
+            <div class="control-point ne-cursor" #topRight (mousedown)="selectionService.selectionResize.topRightResize()"></div>
+
+            <div class="control-point w-cursor" #middleLeft (mousedown)="selectionService.selectionResize.middleLeftResize()"></div>
+            <div class="control-point e-cursor" #middleRight (mousedown)="selectionService.selectionResize.middleRightResize()"></div>
+
+            <div class="control-point sw-cursor" #bottomLeft (mousedown)="selectionService.selectionResize.bottomLeftResize()"></div>
+            <div class="control-point s-cursor" #bottomMiddle (mousedown)="selectionService.selectionResize.bottomMiddleResize()"></div>
+            <div class="control-point se-cursor" #bottomRight (mousedown)="selectionService.selectionResize.bottomRightResize()"></div>
+        </div>
+    </div>
+    <div class="selection-background-container">
+        <div class="selection-background" #selectionBackground></div>
+    </div>
+</div>

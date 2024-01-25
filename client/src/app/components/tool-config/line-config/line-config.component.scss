@@ -1,0 +1,48 @@
+.mat-button-toggle {
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 15px;
+}
+
+.mat-button-toggle-checked {
+    background-color: #686370;
+    color: #ffffff;
+    font-size: 15px;
+}
+
+.mat-button-toggle-group {
+    border: none;
+    border-radius: 0px;
+    padding: 0px !important;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.tab {
+    width: 190px;
+}
+.buttons {
+    width: 150px !important;
+}
+
+.textFormat {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 0px;
+}
+
+.textFormatForSlider {
+    padding-left: 8px;
+    font-size: small;
+}
+
+.textFormatButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px 0px;
+}
+
+.longFormat {
+    letter-spacing: -0.2px;
+}
